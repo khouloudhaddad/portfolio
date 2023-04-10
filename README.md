@@ -73,9 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Run: `npm install --save react-router-dom`  to add react router <br/>
 
-<pre>
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
-</pre>
+<BrowserRouter><App /></BrowserRouter>
+
 
