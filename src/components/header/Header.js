@@ -1,59 +1,91 @@
 import { Link } from "react-router-dom";
 import "./HeaderStyle.css";
 import cv from "./cv.svg";
+import { useState } from "react";
 
 const Header = () => {
+
+  const [isHidden, setIsHidden] = useState(false);
+  const handleClick = () => setIsHidden(!isHidden); 
+  
   return (
-    <header className="bg-white">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img src={cv} width="50px" alt="Portfolio" />
+    <nav
+      className="relative flex w-full flex-wrap items-center justify-between bg-indigo-700 py-3 text-neutral-200 shadow-lg lg:flex-wrap rounded-sm lg:justify-start"
+      data-te-navbar-ref>
+      <div className="flex w-full flex-wrap items-center justify-between px-6">
+        <div className="flex w-full items-center justify-between">
+          <Link className="pr-2 text-lg font-normal text-white flex items-center lg:hidden flex-1" to="/">
+            <img
+              src={cv}
+              style={{ height: "25px", width: "25px" }}
+              alt=""
+              loading="lazy" />
+            <span className="ms-2 text-sm">Khouloud HADDAD AMAMOU</span>
           </Link>
-        </div>
-        <div className="flex lg:hidden">
-          <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-            <span className="sr-only">Open main menu</span>
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+          <button
+            className="block border-0 bg-transparent  py-2 text-neutral-200 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 lg:hidden"
+            type="button"
+            data-te-collapse-init
+            data-te-target="#navbarSupportedContent4"
+            aria-controls="navbarSupportedContent4"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            onClick={handleClick}
+            >
+            <span className="[&>svg]:w-7"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-7 w-7">
+                <path
+                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                 />
+              </svg>
+            </span>
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12 lg:justify-end">
-          <Link to="/about" className="text-sm font-semibold leading-6 text-gray-900">About</Link>
-          <Link to="/projects" className="text-sm font-semibold leading-6 text-gray-900">Projetcs</Link>
-          <Link to="/contact" className="text-sm font-semibold leading-6 text-gray-900">Contact</Link>
-        </div>
-        
-      </nav>
-      <div className="lg:hidden" role="dialog" aria-modal="true">
-        <div className="fixed inset-0 z-10"></div>
-        <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="-m-1.5 p-1.5 flex items-center">
-              <img src={cv} width="45px" alt="Portfolio" />
-              <span className="px-2">Khouloud HADDAD AMAMOU</span>
-            </Link>
-            <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
-              <span className="sr-only">Close menu</span>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <Link to="/about" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About</Link>
-                <Link to="/projects" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Projects</Link>
-                <Link to="/contact" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact</Link>
-              </div>
-            </div>
-          </div>
+
+        <div className={`!visible ${isHidden===true ? "hidden": ""} flex-grow basis-[100%] items-center lg:!flex lg:basis-auto data-te-collapse-show`}
+          id="navbarSupportedContent4"
+          data-te-collapse-item>
+          <hr />
+          <ul
+            className="list-style-none ms-auto flex flex-col pl-0 lg:flex-row"
+            data-te-navbar-nav-ref>
+            <li className="p-2" data-te-nav-item-ref>
+              <Link
+                className="text-white disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                to="/"
+                data-te-nav-link-ref
+              >Home</Link>
+            </li>
+            <li className="p-2" data-te-nav-item-ref>
+              <Link
+                className="p-0 text-white opacity-60 hover:opacity-80 focus:opacity-80 disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                to="/about"
+                data-te-nav-link-ref
+              >About</Link>
+            </li>
+            <li className="p-2" data-te-nav-item-ref>
+              <Link
+                className="p-0 text-white opacity-60 hover:opacity-80 focus:opacity-80 disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                to="/projects"
+                data-te-nav-link-ref
+              >Projects</Link>
+            </li>
+            <li className="p-2" data-te-nav-item-ref>
+              <Link
+                className="p-0 text-white opacity-60 hover:opacity-80 focus:opacity-80 disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                to="/contact"
+                data-te-nav-link-ref
+              >Contact</Link>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
+    </nav>
   )
 }
 

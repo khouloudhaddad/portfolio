@@ -10,21 +10,17 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      
-
       <Header />
+      <div className="container m-4">
 
-      <div className="container mx-auto">
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/projects" element={<Projects />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
 
       </div>
-
       <Footer />
     </>
   );
