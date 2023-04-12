@@ -50,7 +50,15 @@ const Header = () => {
         <div className={`!visible ${isHidden===true ? "hidden": ""} flex-grow basis-[100%] items-center lg:!flex lg:basis-auto data-te-collapse-show`}
           id="navbarSupportedContent4"
           data-te-collapse-item>
-          <hr />
+            <Link className="pr-2 text-lg font-normal text-white flex items-center invisible lg:visible flex-1" to="/">
+            <img
+              src={cv}
+              style={{ height: "25px", width: "25px" }}
+              alt=""
+              loading="lazy" />
+            <span className="ms-2 text-sm">Khouloud HADDAD AMAMOU</span>
+          </Link>
+         
           <ul
             className="list-style-none ms-auto flex flex-col pl-0 lg:flex-row"
             data-te-navbar-nav-ref>

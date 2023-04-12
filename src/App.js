@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="container m-4">
+      <div className="container mx-auto my-8">
 
         <Routes>
           <Route path="/" element={<Home />} />

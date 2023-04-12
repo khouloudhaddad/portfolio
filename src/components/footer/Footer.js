@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <footer className="bg-indigo-200 text-center text-white dark:bg-neutral-600">
-            <div className="container pt-9">
-                <div className="mb-9 flex justify-center">
+            <div className="container pt-9 mx-auto">
+                <div className="mb-9 flex justify-center w-full">
                     <Link to="https://www.linkedin.com/in/khouloudhaddadamamou/" className="mr-9 text-neutral-800 dark:text-neutral-200" target="_blank">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
